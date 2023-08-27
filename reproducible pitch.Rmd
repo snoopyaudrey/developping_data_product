@@ -31,6 +31,13 @@ Let's take a look at some data from the app using R code:
 head(iris)
 ```
 
+For example, sepal.length has a 5.006 mean for setosa
+
+```{r}
+subset_data <- subset(iris, Species == "setosa")
+mean(subset_data$Sepal.Length)
+```
+
 ## explaination of the code : server 
 
 In server, the app calls packages : 
@@ -53,7 +60,16 @@ I add "if (!is.null(selected_var) && !is.null(selected_species))" to not bug the
 
 One action button : "actionButton("calculate", "Calculate Mean")"
 
-## Link to my app 
+## Link to my app and github 
 
-https://audreyclausell.shinyapps.io/project/
+app : https://audreyclausell.shinyapps.io/project/
+
+github repo : https://github.com/snoopyaudrey/developping_data_product
+
+
+
+
+
+
+
 
