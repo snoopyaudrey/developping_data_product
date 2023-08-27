@@ -1,0 +1,59 @@
+---
+title: "reproducible pitch"
+author: "Audrey Clausell"
+date: "2023-08-27"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## developping data product final project  
+
+
+Welcome to my presentation about my Shiny app!
+
+
+## overview
+
+Here's a brief overview of what my app does.
+
+Based on the IRIS data available in the ggplot2 package, my app calculate the mean of one variable (sepal.length, sepal.width,petal.length, petal.width) and one specie. 
+
+The user select both the variable and the sepcie with 2 different boxes where varaibles are written. 
+
+## Data IRIS 
+
+Let's take a look at some data from the app using R code:
+
+```{r}
+head(iris)
+```
+
+## explaination of the code : server 
+
+In server, the app calls packages : 
+
+
+```{r}
+library(shiny)
+library(ggplot2)
+```
+
+I add "if (!is.null(selected_var) && !is.null(selected_species))" to not bug the app. The user can't click "calculate" when boxes are empty. 
+
+## explaination of the code : ui
+
+2 select inputs : 
+
+1. "selectInput("variable", "Select a Variable:", choices = colnames(iris[1:length(iris)-1]))" for the variable, removing the last column (specie) to select only numeric 
+
+2. "selectInput("species", "Select a Species:", choices = unique(iris$Species))"
+
+One action button : "actionButton("calculate", "Calculate Mean")"
+
+## Link to my app 
+
+https://audreyclausell.shinyapps.io/project/
+
